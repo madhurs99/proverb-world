@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://struts.apache.org/dtds/tiles-config_1_1.dtd">
+<tiles-definitions>
+	<definition name="header">
+		<put name="header" value="/JSP/header.jsp" />
+		<put name="footer" value="/JSP/footer.jsp" />
+	</definition>
+	<definition name="postpage" path="/JSP/layout.jsp" extends="header">
+		<put name="body" value="/JSP/postaproverb.jsp" />
+	</definition>
+	<definition name="homepage" path="/JSP/layout.jsp" extends="header">
+		<put name="body" value="/JSP/body.jsp" />
+	</definition>
+	<definition name="contactpage" path="/JSP/layout.jsp"
+		extends="header">
+		<put name="body" value="/JSP/contact.jsp" />
+	</definition>
+	<definition name="adminloginpage" path="/JSP/layout.jsp"
+		extends="header">
+		<put name="body" value="/JSP/adminlogin.jsp" />
+	</definition>
+	<definition name="adminpage" path="/JSP/layout.jsp" extends="header">
+		<put name="body" value="/JSP/adminbody.jsp" />
+	</definition>
+	<definition name="unauthorised" path="/JSP/layout.jsp"
+		extends="header">
+		<put name="body" value="/JSP/unauthorised.jsp" />
+	</definition>
+	<definition name="editpage" path="/JSP/layout.jsp" extends="header">
+		<put name="body" value="/JSP/postaproverb.jsp" />
+	</definition>
+</tiles-definitions>
