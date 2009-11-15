@@ -59,8 +59,9 @@ public class ProverbDAO {
 		boolean status = false;
 		int user_id=0;
 		int proverb_id=0;
-		String userSQL ="INSERT INTO USER(NAME, PLACE) VALUES('"+pBean.getSubmittedBy() + "','" + pBean.getSubmitterPlace()+"')";
-		String userIDSQL ="SELECT USER_ID AS ID FROM USER WHERE NAME = '" +pBean.getSubmittedBy() + "'AND PLACE ='"+pBean.getSubmitterPlace()+"'";
+		String userIDSQL = "SELECT USER_ID AS ID FROM USER WHERE NAME = ? AND PLACE = ?";
+		String userSQL ="INSERT INTO USER(NAME, PLACE) VALUES( ? , ?)";
+		
 		String proverbIDSQL ="SELECT PROVERB_ID AS ID FROM PROVERB WHERE PROVERB ='"+pBean.getProverb()+"'";
 		int intApproved =0;
 		if(pBean.isApproved())
