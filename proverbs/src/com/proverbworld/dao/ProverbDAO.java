@@ -22,8 +22,7 @@ public class ProverbDAO {
 		intApproved =1;
 		
 		String sql = "SELECT P.PROVERB_ID, P.PROVERB, P.DESCRIPTION,U.NAME, U.PLACE FROM PROVERB P " +
-				"LEFT OUTER JOIN PROVERB_SUBMITTER_MAP PM ON P.PROVERB_ID = PM.PROVERB_ID " +
-				"LEFT OUTER JOIN USER U ON PM.USER_ID = U.USER_ID WHERE P.APPROVED = ?";
+					"LEFT OUTER JOIN USER U ON P.USER_ID = U.USER_ID WHERE P.APPROVED = ?";
 		try{
 		 conn = DBUtil.getConnection();
 		 ps = conn.prepareStatement(sql);
