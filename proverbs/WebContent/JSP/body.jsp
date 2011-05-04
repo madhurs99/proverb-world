@@ -2,8 +2,9 @@
 <%@ taglib uri="/tags/struts-html" prefix="html"%>
 <%@ taglib uri="/tags/struts-bean" prefix="bean"%>
 <%@ taglib uri="/tags/struts-logic" prefix="logic"%>
+<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 
-
+<META http-equiv="Content-Type" content="text/html; charset="utf-8">
 <%@page import="java.util.List"%>
 <%@page import="com.proverbworld.beans.Proverb"%>
 <%@page import="java.util.Iterator"%><br>

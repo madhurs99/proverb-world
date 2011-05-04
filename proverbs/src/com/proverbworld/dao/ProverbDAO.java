@@ -21,8 +21,8 @@ public class ProverbDAO {
 		if(approved)
 		intApproved =1;
 		
-		String sql = "SELECT P.PROVERB_ID, P.PROVERB, P.DESCRIPTION,U.NAME, U.PLACE FROM PROVERB P " +
-					"LEFT OUTER JOIN USER U ON P.USER_ID = U.USER_ID WHERE P.APPROVED = ?";
+		String sql = "SELECT * FROM PROVERB  " +
+					"WHERE APPROVED = ?";
 		try{
 		 conn = DBUtil.getConnection();
 		 ps = conn.prepareStatement(sql);
@@ -34,8 +34,8 @@ public class ProverbDAO {
 				pBean.setProverbID(Integer.parseInt(rs.getString("Proverb_id")));
 				pBean.setProverb(rs.getString("proverb"));
 				pBean.setDescription(rs.getString("description"));
-				pBean.setSubmittedBy(rs.getString("name"));
-				pBean.setSubmitterPlace(rs.getString("place"));
+				pBean.setSubmittedBy(rs.getString("submitter"));
+				pBean.setSubmitterPlace(rs.getString("submitter_place"));
 				lstBeans.add(pBean);
 			}
 		}
@@ -68,32 +68,32 @@ public class ProverbDAO {
 		if(pBean.getProverbID()> 0){
 			proverbSQL ="UPDATE PROVERB SET PROVERB = '"+pBean.getProverb()+"',DESCRIPTION ='"+pBean.getDescription()+"',APPROVED="+intApproved +" WHERE PROVERB_ID ="+pBean.getProverbID();
 		}else{
-			proverbSQL ="INSERT INTO PROVERB(PROVERB, DESCRIPTION, APPROVED) VALUES ('"+pBean.getProverb()+"','"+pBean.getDescription()+"',"+intApproved +")";
+			proverbSQL ="INSERT INTO PROVERB(PROVERB, DESCRIPTION, APPROVED, SUBMITTER,  SUBMITTER_PLACE) VALUES ('"+pBean.getProverb()+"','"+pBean.getDescription()+"',"+intApproved +",'"+pBean.getSubmittedBy()+"','"+pBean.getSubmitterPlace()+"')";
 		}
 		try{
 			conn = DBUtil.getConnection();
 			ps = conn.prepareStatement(proverbSQL);
 			int i=0;
 			i = ps.executeUpdate();
-			if(i >0 ){
-				user_id = this.getID(userIDSQL, conn);
-				if(!(user_id >0)){
-					i=0;
-					i =ps.executeUpdate(userSQL);
-				}
-				user_id = this.getID(userIDSQL, conn);
-				proverb_id = this.getID(proverbIDSQL, conn);
-				if(user_id>0 && proverb_id>0 && i>0){
-						i=0;
-						String userProverbSQL = "INSERT INTO PROVERB_SUBMITTER_MAP(USER_ID, PROVERB_ID)VALUES("+user_id+","+proverb_id+")";
-						i = ps.executeUpdate(userProverbSQL);
-				}
-			}
+//			if(i >0 ){
+//				user_id = this.getID(userIDSQL, conn);
+//				if(!(user_id >0)){
+//					i=0;
+//					i =ps.executeUpdate(userSQL);
+//				}
+//				user_id = this.getID(userIDSQL, conn);
+//				proverb_id = this.getID(proverbIDSQL, conn);
+//				if(user_id>0 && proverb_id>0 && i>0){
+//						i=0;
+//						String userProverbSQL = "INSERT INTO PROVERB_SUBMITTER_MAP(USER_ID, PROVERB_ID)VALUES("+user_id+","+proverb_id+")";
+//						i = ps.executeUpdate(userProverbSQL);
+//				}
+//			}
 			if(i>0){
 				status = true;
 			}
 		}catch(Exception ex){
-			
+			ex.printStackTrace();
 		}finally{
 			DBUtil.closeResultSet(rs);
 			DBUtil.closeStatement(ps);
@@ -197,9 +197,10 @@ public class ProverbDAO {
 		Proverb pBean = new Proverb();
 		String value = null;
 		
-		String sql = "SELECT P.PROVERB_ID, P.PROVERB, P.DESCRIPTION,U.NAME, U.PLACE FROM PROVERB P " +
-					"LEFT OUTER JOIN PROVERB_SUBMITTER_MAP PM ON P.PROVERB_ID = PM.PROVERB_ID " +
-					"LEFT OUTER JOIN USER U ON PM.USER_ID = U.USER_ID WHERE P.PROVERB_ID = ?";
+//		String sql = "SELECT P.PROVERB_ID, P.PROVERB, P.DESCRIPTION,U.NAME, U.PLACE FROM PROVERB P " +
+//					"LEFT OUTER JOIN PROVERB_SUBMITTER_MAP PM ON P.PROVERB_ID = PM.PROVERB_ID " +
+//					"LEFT OUTER JOIN USER U ON PM.USER_ID = U.USER_ID WHERE P.PROVERB_ID = ?";
+		String sql = "SELECT PROVERB_ID, PROVERB, DESCRIPTION,NAME, PLACE FROM PROVERB  " + "WHERE PROVERB_ID = ?";
 		try{
 		 conn = DBUtil.getConnection();
 		 ps = conn.prepareCall(sql);
@@ -211,8 +212,8 @@ public class ProverbDAO {
 				pBean.setProverbID(Integer.parseInt(rs.getString("Proverb_id")));
 				pBean.setProverb(rs.getString("proverb"));
 				pBean.setDescription(rs.getString("description"));
-				pBean.setSubmittedBy(rs.getString("name"));
-				pBean.setSubmitterPlace(rs.getString("place"));
+				pBean.setSubmittedBy(rs.getString("submitter"));
+				pBean.setSubmitterPlace(rs.getString("submitter_place"));
 			}
 		 }
 		}catch(Exception ex){
@@ -240,5 +241,12 @@ public class ProverbDAO {
 		DBUtil.closeStatement(ps);
 		return i;
 	}
-
+	public static final String utf8Convert(String utf8String) throws
+	java.io.UnsupportedEncodingException {
+	byte[] bytes = new byte[utf8String.length()];
+	for (int i = 0; i < utf8String.length(); i++) {
+	bytes[i] = (byte) utf8String.charAt(i);
+	}
+	return new String(bytes, "UTF-8");
+	}
 }
