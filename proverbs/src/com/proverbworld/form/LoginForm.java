@@ -1,8 +1,7 @@
 package com.proverbworld.form;
 
-import org.apache.struts.action.ActionForm;
 
-public class LoginForm extends ActionForm {
+public class LoginForm extends BaseForm {
 
 	String username = "";
 	String password = "";

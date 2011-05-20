@@ -3,29 +3,28 @@
 <%@ taglib uri="/tags/struts-logic" prefix="logic"%>
 <%@ taglib uri="/tags/struts-nested" prefix="nested"%>
 <head>
- <script type="text/javascript" src="https://www.google.com/jsapi?key=INSERT-YOUR-KEY">
-    </script>
+	<script type="text/javascript" src="https://www.google.com/jsapi?key=INSERT-YOUR-KEY"></script>
     <script type="text/javascript">
 
       // Load the Google Transliterate API
       google.load("elements", "1", {
             packages: "transliteration"
-          });
+      });
+      var control;
+      var selectedLang
 
       function onLoad() {
+    	selectedLang = $('select option:selected').val();
         var options = {
-            sourceLanguage:
-                google.elements.transliteration.LanguageCode.ENGLISH,
-            destinationLanguage:
-                [google.elements.transliteration.LanguageCode.PUNJABI],
+        	sourceLanguage:google.elements.transliteration.LanguageCode.ENGLISH,
+            destinationLanguage:[selectedLang],
             shortcutKey: 'ctrl+g',
             transliterationEnabled: true
         };
 
         // Create an instance on TransliterationControl with the required
         // options.
-        var control =
-            new google.elements.transliteration.TransliterationControl(options);
+        control = new google.elements.transliteration.TransliterationControl(options);
 
         // Enable transliteration in the textbox with id
         // 'transliterateTextarea'.
@@ -34,6 +33,12 @@
         
       }
       google.setOnLoadCallback(onLoad);
+      function changeLanguage(){
+    	  selectedLang = $('select option:selected').val();
+    	  control.setLanguagePair(
+    			    google.elements.transliteration.LanguageCode.ENGLISH,
+    			    selectedLang);
+      }
     </script>
   </head>
 <!--   <body>
@@ -43,29 +48,37 @@
 
 
 <body link="purple" alink="purple" vlink="purple">
+<table>
+	<tr>
+		<td width="10%">Select your language</td>
+		<td width="10%">
+			<select id="languageSelect" onchange="javascript:changeLanguage();">
+				<option value="pa">Punjabi</option>
+				<option value="hi">Hindi</option>
+				<option value="mr">Marathi</option>
+				<option value="en">English</option>
+			</select>
+		</td>
+	</tr>
+		</table>
 <logic:equal name="posted" value="true">
+<center><strong>
 Thanks for posting
+</strong>
+</center>
 </logic:equal>
 <br>
 <br>
 <br>
-Type in English and get it converted to Unicode Punjabi.
-<br>
-Use
-<b>CTRL g</b>
-to toggle between English &amp; Unicode Punjabi
+Type in English, hit space and get it converted to your chosen language.
 <br>
 <br>
 <br>
 <html:form action="/post">
 	<font color="red"><html:errors /></font>
 	<html:hidden property="proverbID" />
+	<html:hidden property="selectedLanguange" />
 	<table width="100%">
-		<tr>
-			<td width="10%" />
-			<td width="20%"><bean:message key="show.keymap" /></td>
-			<td width="70%"><input onclick="showMap(this)" type="checkbox"></td>
-		</tr>
 		<tr>
 			<td width="10%" />
 			<td width="20%"><bean:message key="proverb" />*</td>
