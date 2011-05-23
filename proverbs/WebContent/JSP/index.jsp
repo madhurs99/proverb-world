@@ -2,6 +2,7 @@
 <script src="javascript/jquery.cookie.js" type="text/javascript"></script>
 <script>
 var langCookie = $.cookie('proverbLanguage');
-window.location = window.location.href+'&userLanguage='+langCookie;
+/*alert(window.location.href)*/
+window.location.href = window.location+'/welcome.do?command=home&userLanguage='+langCookie;
 </script>
 
