@@ -1,5 +1,5 @@
 <%@ taglib uri="/tags/struts-bean" prefix="bean"%>
-
+<input id="highlight" value="contact" type="hidden">
 <bean:message key="developers" />
 :
 <br>

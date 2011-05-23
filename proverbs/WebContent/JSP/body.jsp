@@ -10,8 +10,7 @@
 <%@page import="java.util.Iterator"%><br>
 <br>
 <br>
-
-
+<input id="highlight" value="home" type="hidden">
 <table width="100%">
 
 	<logic:iterate id="pr" name="plist" indexId="index">
@@ -26,7 +25,7 @@ if(index.intValue()%2==0){%>
 		<tr bgcolor="f0f0f0">
 			<% }%>
 			<td width="20%" />
-			<td width="70"><font color="purple"><b>${index+1}.&nbsp;<bean:write
+			<td width="70"><font color="#000080"><b>${index+1}.&nbsp;<bean:write
 				filter="false" name="pr" property="proverb" /></b></font><br>
 			<i><bean:message key="description" /></i>:<bean:write filter="false"
 				name="pr" property="description" /><br>

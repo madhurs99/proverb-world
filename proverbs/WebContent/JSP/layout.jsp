@@ -3,6 +3,7 @@
 <%@ taglib uri="/tags/struts-logic" prefix="logic"%>
 <%@ taglib uri="/tags/struts-tiles" prefix="tiles"%>
 <script src="javascript/jquery.js" type="text/javascript"></script>
+<script src="javascript/jquery.cookie.js" type="text/javascript"></script>
 <script src="javascript/pw.js" type="text/javascript"></script>
 <style>
 <!--

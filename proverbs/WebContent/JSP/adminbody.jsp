@@ -2,6 +2,7 @@
 <%@ taglib uri="/tags/struts-html" prefix="html"%>
 <%@ taglib uri="/tags/struts-bean" prefix="bean"%>
 <%@ taglib uri="/tags/struts-logic" prefix="logic"%>
+<input id="highlight" value="admin" type="hidden">
 <table width="100%">
 	<tr>
 		<td><logic:equal name="showApproved" value="true">

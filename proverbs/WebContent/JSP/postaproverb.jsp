@@ -48,19 +48,7 @@
 
 
 <body link="purple" alink="purple" vlink="purple">
-<table>
-	<tr>
-		<td width="10%">Select your language</td>
-		<td width="10%">
-			<select id="languageSelect" onchange="javascript:changeLanguage();">
-				<option value="pa">Punjabi</option>
-				<option value="hi">Hindi</option>
-				<option value="mr">Marathi</option>
-				<option value="en">English</option>
-			</select>
-		</td>
-	</tr>
-		</table>
+<input id="highlight" value="post" type="hidden">
 <logic:equal name="posted" value="true">
 <center><strong>
 Thanks for posting

@@ -20,6 +20,14 @@
 			<forward name="success_adminlogin" path="adminloginpage" />
 			<forward name="success_admin" path="adminpage" />
 		</action>
+		<action path="/excel" type="com.proverbworld.action.BaseAction"
+			parameter="command">
+			<forward name="success_home" path="homepage" />
+			<forward name="success_post" path="postpage" />
+			<forward name="success_contact" path="contactpage" />
+			<forward name="success_adminlogin" path="adminloginpage" />
+			<forward name="success_admin" path="adminpage" />
+		</action>
 		<action path="/login" type="com.proverbworld.action.LoginAction"
 			name="LoginForm">
 			<forward name="success_admin" path="adminpage" />
