@@ -1,6 +1,7 @@
 package com.proverbworld.form;
 
 import com.proverbworld.beans.Proverb;
+import com.proverbworld.common.Language;
 
 public class ProverbForm extends BaseForm {
 	
@@ -10,6 +11,7 @@ public class ProverbForm extends BaseForm {
 	private boolean approved = false;
 	private String submittedBy = "";
 	private String submitterPlace = "";
+	private String language="";
 
 	public int getProverbID() {
 		return proverbID;
@@ -57,7 +59,7 @@ public class ProverbForm extends BaseForm {
 		proverbBean.setSubmittedBy(this.submittedBy);
 		proverbBean.setSubmitterPlace(this.submitterPlace);
 		proverbBean.setApproved(this.approved);
-				
+		proverbBean.setLanguage(this.language);		
 		return proverbBean;
 	}
 	
@@ -69,6 +71,7 @@ public class ProverbForm extends BaseForm {
 		setSubmittedBy(proverbBean.getSubmittedBy());
 		setSubmitterPlace(proverbBean.getSubmitterPlace());
 		setApproved(proverbBean.isApproved());
+		setLanguage(proverbBean.getLanguage());
 		
 	}
 	
@@ -80,6 +83,7 @@ public class ProverbForm extends BaseForm {
 		setSubmittedBy("");
 		setSubmitterPlace("");
 		setApproved(false);
+		setLanguage(Language.PUNJABI);
 		
 	}	
 //	public ActionErrors validate(ActionMapping mapping,	HttpServletRequest request) {
@@ -91,4 +95,10 @@ public class ProverbForm extends BaseForm {
 //		}
 //		return actionErrors;
 //	}
+	public String getLanguage() {
+		return language;
+	}
+	public void setLanguage(String language) {
+		this.language = language;
+	}
 }

@@ -36,6 +36,7 @@ public class ProverbDAO {
 				pBean.setDescription(rs.getString("description"));
 				pBean.setSubmittedBy(rs.getString("submitter"));
 				pBean.setSubmitterPlace(rs.getString("submitter_place"));
+				pBean.setLanguage("language");
 				lstBeans.add(pBean);
 			}
 		}
@@ -56,19 +57,13 @@ public class ProverbDAO {
 		ResultSet rs = null;
 		String proverbSQL = "";
 		boolean status = false;
-		int user_id=0;
-		int proverb_id=0;
-		String userIDSQL = "SELECT USER_ID AS ID FROM USER WHERE NAME = ? AND PLACE = ?";
-		String userSQL ="INSERT INTO USER(NAME, PLACE) VALUES( ? , ?)";
-		
-		String proverbIDSQL ="SELECT PROVERB_ID AS ID FROM PROVERB WHERE PROVERB ='"+pBean.getProverb()+"'";
 		int intApproved =0;
 		if(pBean.isApproved())
 			intApproved=1;
 		if(pBean.getProverbID()> 0){
 			proverbSQL ="UPDATE PROVERB SET PROVERB = '"+pBean.getProverb()+"',DESCRIPTION ='"+pBean.getDescription()+"',APPROVED="+intApproved +" WHERE PROVERB_ID ="+pBean.getProverbID();
 		}else{
-			proverbSQL ="INSERT INTO PROVERB(PROVERB, DESCRIPTION, APPROVED, SUBMITTER,  SUBMITTER_PLACE) VALUES ('"+pBean.getProverb()+"','"+pBean.getDescription()+"',"+intApproved +",'"+pBean.getSubmittedBy()+"','"+pBean.getSubmitterPlace()+"')";
+			proverbSQL ="INSERT INTO PROVERB(PROVERB, DESCRIPTION, APPROVED, SUBMITTER,  SUBMITTER_PLACE,language) VALUES ('"+pBean.getProverb()+"','"+pBean.getDescription()+"',"+intApproved +",'"+pBean.getSubmittedBy()+"','"+pBean.getSubmitterPlace()+"','"+pBean.getLanguage()+"')";
 		}
 		try{
 			conn = DBUtil.getConnection();
@@ -200,7 +195,7 @@ public class ProverbDAO {
 //		String sql = "SELECT P.PROVERB_ID, P.PROVERB, P.DESCRIPTION,U.NAME, U.PLACE FROM PROVERB P " +
 //					"LEFT OUTER JOIN PROVERB_SUBMITTER_MAP PM ON P.PROVERB_ID = PM.PROVERB_ID " +
 //					"LEFT OUTER JOIN USER U ON PM.USER_ID = U.USER_ID WHERE P.PROVERB_ID = ?";
-		String sql = "SELECT PROVERB_ID, PROVERB, DESCRIPTION,NAME, PLACE FROM PROVERB  " + "WHERE PROVERB_ID = ?";
+		String sql = "SELECT PROVERB_ID, PROVERB, DESCRIPTION,submitter, submitter_place,language FROM PROVERB  " + "WHERE PROVERB_ID = ?";
 		try{
 		 conn = DBUtil.getConnection();
 		 ps = conn.prepareCall(sql);
@@ -214,6 +209,7 @@ public class ProverbDAO {
 				pBean.setDescription(rs.getString("description"));
 				pBean.setSubmittedBy(rs.getString("submitter"));
 				pBean.setSubmitterPlace(rs.getString("submitter_place"));
+				pBean.setLanguage(rs.getString("language"));
 			}
 		 }
 		}catch(Exception ex){

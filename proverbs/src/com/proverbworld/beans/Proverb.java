@@ -12,6 +12,7 @@ public class Proverb {
 	private boolean approved;
 	private String submittedBy;
 	private String submitterPlace;
+	private String language;
 	
 	public int getProverbID() {
 		return proverbID;
@@ -72,5 +73,13 @@ public class Proverb {
 	public void setSubmitterPlace(String submitterPlace) {
 		this.submitterPlace = submitterPlace;
 	}
+	public String getLanguage() {
+		return language;
+	}
+	public void setLanguage(String language) {
+		this.language = language;
+	}
 }
+
+
 
