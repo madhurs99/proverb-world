@@ -12,6 +12,45 @@ import com.proverbworld.common.DBUtil;
 
 public class ProverbDAO {
 	
+	public List getProverbs(boolean approved , String language){
+		int intApproved =0;
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		List lstBeans = new ArrayList();
+		if(approved)
+		intApproved =1;
+		
+		String sql = "SELECT * FROM PROVERB  " +
+					"WHERE APPROVED = ? and language =?";
+		try{
+		 conn = DBUtil.getConnection();
+		 ps = conn.prepareStatement(sql);
+		ps.setInt(1, intApproved);
+		ps.setString(2, language);
+		rs = ps.executeQuery();
+		if(rs!= null){
+			while(rs.next()){
+				Proverb pBean = new Proverb();
+				pBean.setProverbID(Integer.parseInt(rs.getString("Proverb_id")));
+				pBean.setProverb(rs.getString("proverb"));
+				pBean.setDescription(rs.getString("description"));
+				pBean.setSubmittedBy(rs.getString("submitter"));
+				pBean.setSubmitterPlace(rs.getString("submitter_place"));
+				pBean.setLanguage("language");
+				lstBeans.add(pBean);
+			}
+		}
+		}catch(Exception ex){
+			System.out.println(ex.getMessage());
+		}
+		finally{
+			DBUtil.closeResultSet(rs);
+			DBUtil.closeStatement(ps);
+			DBUtil.closeConnection(conn);
+		}
+		return lstBeans;
+	}
 	public List getProverbs(boolean approved){
 		int intApproved =0;
 		Connection conn = null;
@@ -27,6 +66,7 @@ public class ProverbDAO {
 		 conn = DBUtil.getConnection();
 		 ps = conn.prepareStatement(sql);
 		ps.setInt(1, intApproved);
+		
 		rs = ps.executeQuery();
 		if(rs!= null){
 			while(rs.next()){

@@ -17,7 +17,8 @@ public class BaseAction extends DispatchAction {
 	public  ActionForward home(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		ProverbDAO pdao = new ProverbDAO();
-		List proverbs = pdao.getProverbs(true);
+		String language =request.getParameter("userLanguage");
+		List proverbs = pdao.getProverbs(true,language);
 		request.setAttribute("plist", proverbs);
 		if(request.getSession().getAttribute("who") == null){
 			request.getSession().setAttribute("who", "user");
