@@ -22,12 +22,13 @@ public class ProverbDAO {
 		intApproved =1;
 		
 		String sql = "SELECT * FROM PROVERB  " +
-					"WHERE APPROVED = ? and language =?";
+					"WHERE APPROVED = ? and (language =? or language=?)";
 		try{
 		 conn = DBUtil.getConnection();
 		 ps = conn.prepareStatement(sql);
 		ps.setInt(1, intApproved);
 		ps.setString(2, language);
+		ps.setString(3, "");
 		rs = ps.executeQuery();
 		if(rs!= null){
 			while(rs.next()){
