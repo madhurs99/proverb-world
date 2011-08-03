@@ -11,21 +11,34 @@
 <br>
 <br>
 <div id="cse" style="width: 100%;">Loading</div>
-
 <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script type="text/javascript"> 
   google.load('search', '1', {language : 'en'});
   google.setOnLoadCallback(function() {
     var customSearchControl = new google.search.CustomSearchControl('010198639056244782038:4zh6xttlk_e');
-    customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+    customSearchControl.setResultSetSize(google.search.Search.SMALL_RESULTSET);
     customSearchControl.draw('cse');
   }, true);
 </script>
-<link rel="stylesheet" href="http://www.google.com/cse/style/look/default.css" type="text/css" />
       
 <input id="highlight" value="home" type="hidden">
 <table width="100%">
-
+<tr>
+			<td width="10%" />
+			<td width="10%"><bean:message key="language" /></td>
+			<td width="80%">
+				<select id ="language" onchange="javascript:changeLanguage();">
+				<option value="pa">Punjabi</option>
+				<option value="hi">Hindi</option>
+				<option value="mr">Marathi</option>
+				<option value="en">English</option>
+			</select>
+			</td>
+		</tr>
+		</table>
+<table width="100%">
+	
+		
 	<logic:iterate id="pr" name="plist" indexId="index">
 
 		<tr>

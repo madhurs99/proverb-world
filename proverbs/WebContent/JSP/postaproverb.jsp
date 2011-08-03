@@ -69,6 +69,19 @@ Type in English, hit space and get it converted to your chosen language.
 	<table width="100%">
 		<tr>
 			<td width="10%" />
+			<td width="20%"><bean:message key="language" /></td>
+			<td width="70%">
+				<html:select property ="language" onchange="javascript:changeLanguage();">
+				<html:option value="pa">Punjabi</html:option>
+				<html:option value="hi">Hindi</html:option>
+				<html:option value="mr">Marathi</html:option>
+				<html:option value="en">English</html:option>
+			</html:select>
+			</td>
+		</tr>
+		
+		<tr>
+			<td width="10%" />
 			<td width="20%"><bean:message key="proverb" />*</td>
 			<td width="70%"><html:textarea styleId="proverb" property="proverb" rows="3"
 				cols="50"></html:textarea>
