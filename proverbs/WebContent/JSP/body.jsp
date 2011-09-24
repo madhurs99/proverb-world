@@ -8,20 +8,10 @@
 <%@page import="java.util.List"%>
 <%@page import="com.proverbworld.beans.Proverb"%>
 <%@page import="java.util.Iterator"%><br>
-<br>
-<br>
-<div id="cse" style="width: 100%;">Loading</div>
-<script src="http://www.google.com/jsapi" type="text/javascript"></script>
-<script type="text/javascript"> 
-  google.load('search', '1', {language : 'en'});
-  google.setOnLoadCallback(function() {
-    var customSearchControl = new google.search.CustomSearchControl('010198639056244782038:4zh6xttlk_e');
-    customSearchControl.setResultSetSize(google.search.Search.SMALL_RESULTSET);
-    customSearchControl.draw('cse');
-  }, true);
-</script>
-      
-<input id="highlight" value="home" type="hidden">
+
+<table width="100%">
+<tr>
+<td width="100%">
 <table width="100%">
 <tr>
 			<td width="10%" />
@@ -34,6 +24,8 @@
 				<option value="en">English</option>
 			</select>
 			</td>
+
+
 		</tr>
 		</table>
 <table width="100%">
@@ -61,3 +53,16 @@ if(index.intValue()%2==0){%>
 
 	</logic:iterate>
 </table>
+</td>
+<td align="right" >
+<table>
+<tr>
+<td>
+<script src="http://www.gmodules.com/ig/ifr?url=http://www.google.com/cse/api/010198639056244782038/cse/4zh6xttlk_e/gadget&amp;synd=open&amp;w=320&amp;h=75&amp;title=&amp;border=%23ffffff%7C3px%2C1px+solid+%23999999&amp;output=js"></script>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<input id="highlight" value="home" type="hidden">
