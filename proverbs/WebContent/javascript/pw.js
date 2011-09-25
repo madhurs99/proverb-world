@@ -28,5 +28,7 @@ $(document).ready(function(){
 
 function changeLanguage(){
 	$.cookie('proverbLanguage', $('select option:selected').val());
+	var sURL = window.location.pathname;
+	window.location.href = sURL+'?command=home&userLanguage='+$('select option:selected').val();
 }
 

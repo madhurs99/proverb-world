@@ -13,9 +13,22 @@
 <table width="100%" class="shade">
 	<tr>
 		
-		<td width="40%"><font size="30" face="brush script mt">ProverbWorld.com</font></td>
+		<td width="40%"><font size="20" face="century gothic">ProverbWorld.com</font></td>
 		<td width="35%"></td>
 		<td width="25%" valign="top">
+						<table>
+	<tr >
+		<td>Select your language</td>
+		<td>
+			<select id="languageSelect" onchange="javascript:changeLanguage();">
+				<option value="pa">Punjabi</option>
+				<option value="hi">Hindi</option>
+				<option value="mr">Marathi</option>
+				<option value="en">English</option>
+			</select>
+		</td>
+	</tr>
+		</table>
 			</td>
 	</tr>
 </table>
