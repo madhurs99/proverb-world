@@ -30,5 +30,19 @@ function changeLanguage(){
 	$.cookie('proverbLanguage', $('select option:selected').val());
 	var sURL = window.location.pathname;
 	window.location.href = sURL+'?command=home&userLanguage='+$('select option:selected').val();
+	alert(sURL)
 }
-
+function onSelectToggle(){
+	$('[name=selectProverbCB]').attr('checked', true);
+}
+function onModify(action){
+	var idList = '';
+	$('[name=selectProverbCB]:checked').each(function(){
+		idList += $(this).attr('id')+",";
+	});
+	var listLength = idList.length;
+	if(listLength>0){
+		idList = idList.substring(0, listLength-1)
+	}
+	window.location.href = '/proverbs/admin.do?command='+action+'&idList='+idList;
+}

@@ -29,7 +29,13 @@ public class AdminAction extends DispatchAction {
 		System.out.println("proverbID:"+request.getParameter("id"));
 		
 		boolean deleted = false;
-		deleted = ProverbDAO.deleteProverb(Integer.parseInt(request.getParameter("id")));
+		String proverbID = request.getParameter("id");
+		String proverbIdList = request.getParameter("idList");
+		if(proverbID != null){
+			deleted = ProverbDAO.deleteProverb(proverbID);
+		} else if(proverbIdList != null){
+			deleted = ProverbDAO.deleteProverb(proverbIdList);
+		}
 		List proverbs = ProverbDAO.getProverbs(((String)request.getSession().getAttribute("showApproved")).equals("true"));
 		request.getSession().setAttribute("plist", proverbs);
 		return mapping.findForward("success_admin");		
@@ -38,8 +44,13 @@ public class AdminAction extends DispatchAction {
 	
 	public  ActionForward approve(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		boolean approved = false;
-		approved = ProverbDAO.approveProverb(Integer.parseInt(request.getParameter("id")));
-		System.out.println("proverb approved:"+ approved);
+		String proverbID = request.getParameter("id");
+		String proverbIdList = request.getParameter("idList");
+		if(proverbID != null){
+			approved = ProverbDAO.approveProverb(proverbID);
+		} else if(proverbIdList != null){
+			approved = ProverbDAO.approveProverb(proverbIdList);
+		}
 			
 		List proverbs = ProverbDAO.getProverbs(((String)request.getSession().getAttribute("showApproved")).equals("true"));
 		request.getSession().setAttribute("plist", proverbs);

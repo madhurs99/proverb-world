@@ -189,15 +189,14 @@ public class ProverbDAO {
 		return status;
 	}
 
-	public static boolean deleteProverb(int proverbID) {
-		String sql = "DELETE FROM PROVERB WHERE PROVERB_ID = ?";
+	public static boolean deleteProverb(String proverbIDList) {
+		String sql = "DELETE FROM PROVERB WHERE PROVERB_ID in ("+proverbIDList+")";
 		Connection conn = null;
 		PreparedStatement ps = null;
 		int i = 0;
 		try {
 			conn = DBUtil.getInstance().getConnection();
 			ps = conn.prepareStatement(sql);
-			ps.setInt(1, proverbID);
 			i = ps.executeUpdate();
 			if (i > 0) {
 				return true;
@@ -211,16 +210,14 @@ public class ProverbDAO {
 
 		}
 	}
-
-	public static boolean approveProverb(int proverbID) {
-		String sql = "UPDATE PROVERB SET APPROVED = 1 WHERE PROVERB_ID = ?";
+	public static boolean approveProverb(String proverbIDList) {
+		String sql = "UPDATE PROVERB SET APPROVED = 1 WHERE PROVERB_ID in ("+proverbIDList+")";
 		Connection conn = null;
 		PreparedStatement ps = null;
 		int i = 0;
 		try {
 			conn = DBUtil.getInstance().getConnection();
 			ps = conn.prepareCall(sql);
-			ps.setInt(1, proverbID);
 			i = ps.executeUpdate();
 			if (i > 0) {
 				return true;

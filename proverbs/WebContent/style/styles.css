@@ -94,3 +94,4 @@ hr {
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFFF, endColorstr=#87CEFA);
 	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFFF, endColorstr=#87CEFA)";
 }
+a { text-decoration:none; color: red;}
