@@ -16,9 +16,8 @@ public class BaseAction extends DispatchAction {
 	
 	public  ActionForward home(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		ProverbDAO pdao = new ProverbDAO();
 		String language =request.getParameter("userLanguage");
-		List proverbs = pdao.getProverbs(true,language);
+		List proverbs = ProverbDAO.getProverbs(true,language);
 		request.setAttribute("plist", proverbs);
 		if(request.getSession().getAttribute("who") == null){
 			request.getSession().setAttribute("who", "user");
@@ -39,8 +38,7 @@ public class BaseAction extends DispatchAction {
 	public  ActionForward adminlogin(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		if(request.getSession().getAttribute("who")!=null && ((String)request.getSession().getAttribute("who")).equals("admin")){
-			ProverbDAO pdao = new ProverbDAO();
-			List proverbs = pdao.getProverbs(false);
+			List proverbs = ProverbDAO.getProverbs(false);
 			request.setAttribute("plist", proverbs);
 			return mapping.findForward("success_admin");
 		}

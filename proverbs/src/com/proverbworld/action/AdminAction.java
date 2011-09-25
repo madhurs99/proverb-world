@@ -20,8 +20,7 @@ public class AdminAction extends DispatchAction {
 	public  ActionForward edit(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		ProverbForm lf = (ProverbForm)form;
-		ProverbDAO pdao = new ProverbDAO();
-		Proverb eProverb = pdao.getProverb(Integer.parseInt(request.getParameter("id")));
+		Proverb eProverb = ProverbDAO.getProverb(Integer.parseInt(request.getParameter("id")));
 		lf.setProverbBean(eProverb);
 		return mapping.findForward("success_edit");
 	}
@@ -30,9 +29,8 @@ public class AdminAction extends DispatchAction {
 		System.out.println("proverbID:"+request.getParameter("id"));
 		
 		boolean deleted = false;
-		ProverbDAO pdao = new ProverbDAO();
-		deleted = pdao.deleteProverb(Integer.parseInt(request.getParameter("id")));
-		List proverbs = pdao.getProverbs(((String)request.getSession().getAttribute("showApproved")).equals("true"));
+		deleted = ProverbDAO.deleteProverb(Integer.parseInt(request.getParameter("id")));
+		List proverbs = ProverbDAO.getProverbs(((String)request.getSession().getAttribute("showApproved")).equals("true"));
 		request.getSession().setAttribute("plist", proverbs);
 		return mapping.findForward("success_admin");		
 		
@@ -40,11 +38,10 @@ public class AdminAction extends DispatchAction {
 	
 	public  ActionForward approve(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		boolean approved = false;
-		ProverbDAO pdao = new ProverbDAO();
-		approved = pdao.approveProverb(Integer.parseInt(request.getParameter("id")));
+		approved = ProverbDAO.approveProverb(Integer.parseInt(request.getParameter("id")));
 		System.out.println("proverb approved:"+ approved);
 			
-		List proverbs = pdao.getProverbs(((String)request.getSession().getAttribute("showApproved")).equals("true"));
+		List proverbs = ProverbDAO.getProverbs(((String)request.getSession().getAttribute("showApproved")).equals("true"));
 		request.getSession().setAttribute("plist", proverbs);
 		return mapping.findForward("success_admin");		
 		
@@ -57,8 +54,7 @@ public class AdminAction extends DispatchAction {
 		}else{
 			request.getSession().setAttribute("showApproved", "false");
 		}
-		ProverbDAO pdao = new ProverbDAO();
-		List proverbs = pdao.getProverbs(!Boolean.parseBoolean(showApproved));
+		List proverbs = ProverbDAO.getProverbs(!Boolean.parseBoolean(showApproved));
 		request.setAttribute("plist", proverbs);
 		return mapping.findForward("success_admin");
 	}
@@ -67,8 +63,7 @@ public class AdminAction extends DispatchAction {
 		
 		request.getSession().setAttribute("who", "user");
 		List proverbs = null;
-		ProverbDAO pdao = new ProverbDAO();
-		proverbs = pdao.getProverbs(true);
+		proverbs = ProverbDAO.getProverbs(true);
 		request.setAttribute("plist", proverbs);
 		request.getSession().setAttribute("who", "user");		
 		return mapping.findForward("success_home");

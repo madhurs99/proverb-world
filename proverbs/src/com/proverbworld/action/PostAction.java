@@ -18,9 +18,7 @@ public class PostAction extends Action {
 			throws Exception {
 		
 		ProverbForm lf = (ProverbForm)form;
-		ProverbDAO pdao = new ProverbDAO();
-
-		pdao.saveProverb(lf.getProverbBean());
+		ProverbDAO.saveProverb(lf.getProverbBean());
 		request.setAttribute("posted", "true");
 		lf.clearForm();
 		return mapping.findForward("success_post");

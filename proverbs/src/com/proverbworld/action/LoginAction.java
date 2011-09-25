@@ -18,9 +18,8 @@ public class LoginAction extends Action {
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		LoginForm lf = (LoginForm)form;
-		ProverbDAO pdao = new ProverbDAO();
 
-		if(pdao.login(lf.getUsername(), lf.getPassword())){
+		if(ProverbDAO.login(lf.getUsername(), lf.getPassword())){
 			lf.setPassword("");
 			lf.setUsername("");
 			try{
@@ -28,7 +27,7 @@ public class LoginAction extends Action {
 				System.out.println("LoginAction:execute()");
 				
 				//ProverbDAO pdao = new ProverbDAO();
-				List proverbs = pdao.getProverbs(false);
+				List proverbs = ProverbDAO.getProverbs(false);
 				request.setAttribute("plist", proverbs);
 				request.getSession().setAttribute("who", "admin");
 				request.getSession().setAttribute("showApproved", "false");
