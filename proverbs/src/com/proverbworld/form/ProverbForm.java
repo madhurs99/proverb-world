@@ -1,5 +1,9 @@
 package com.proverbworld.form;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts.action.ActionMapping;
+
 import com.proverbworld.beans.Proverb;
 import com.proverbworld.common.Language;
 
@@ -100,5 +104,8 @@ public class ProverbForm extends BaseForm {
 	}
 	public void setLanguage(String language) {
 		this.language = language;
+	}
+	public void reset(ActionMapping mapping, HttpServletRequest request){
+		clearForm();
 	}
 }

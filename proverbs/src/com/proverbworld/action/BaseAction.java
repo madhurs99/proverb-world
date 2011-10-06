@@ -18,7 +18,7 @@ public class BaseAction extends DispatchAction {
 		
 		String language =request.getParameter("userLanguage");
 		List proverbs = ProverbDAO.getProverbs(true,language);
-		request.setAttribute("plist", proverbs);
+		request.getSession().setAttribute("plist", proverbs);
 		if(request.getSession().getAttribute("who") == null){
 			request.getSession().setAttribute("who", "user");
 		}
