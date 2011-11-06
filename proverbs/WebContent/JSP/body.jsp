@@ -24,27 +24,22 @@
 <table width="100%">
 	<tr>
 		<td width="100%">
-		<table width="100%">
+		<table >
 			<displaytag:table id="pr1" name="sessionScope.plist" pagesize="4" requestURI="welcome.do">
 				<displaytag:column>
-					<c:choose>
-						<c:when test="${(pr1_rowNum %2) == 0}">
-							<tr>
-						</c:when>
-						<c:otherwise>
-							<tr bgcolor="f0f0f0">
-						</c:otherwise>
-					</c:choose>
-					<!-- <td width="10%" /> -->
-					<td width="80%"><font color="#000080"><b><c:out
-						value="${pr1_rowNum}" />&nbsp;<c:out value="${pr1.proverb}"></c:out></b></font>
-					<br>
-					<i><bean:message key="description" />: </i> <c:out
-						value="${pr1.description}"></c:out></td>
-					<!-- <td width="10%" /> -->
+					<tr>
+						<td width="600px">
+							<div name="proverb" style="border-bottom: #E5E5E5 1px solid; width: 100%">
+								<font color="#696969"><b>
+								<li type="circle">&nbsp;<c:out value="${pr1.proverb}"></c:out></b></font>
+							
+								<div name="description" style="background-color: #e8e8e8">
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<c:out value="${pr1.description}"></c:out>
+								</div>
+							</div>
+						</td>
 					</tr>
 				</displaytag:column>
-
 			</displaytag:table>
 		</table>
 

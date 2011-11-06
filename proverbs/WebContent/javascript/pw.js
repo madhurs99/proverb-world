@@ -1,18 +1,29 @@
 $(document).ready(function(){
+	
 	var langCookie = $.cookie('proverbLanguage');
 	if(langCookie == undefined){
 		$.cookie('proverbLanguage', $('select option:selected').val(), { expires: 7 });
 	} else {
 		$('select option[value='+langCookie+']').attr("selected", "selected");
 	}
+	
+	//Submit language on all link clicks
 	$('a').click(function(event){
 		var href = $(this).attr('href');
 		$(this).attr('href', href+'&userLanguage='+langCookie);
 	});
+	
 	$('form').submit(function(event){
 		var action = $(this).attr('action');
 		$(this).attr('action', action+'?userLanguage='+langCookie);
 	});
+	
+	$('[name=proverb]').mouseenter(function(){
+		$(this).children('li').children('div').show('slow');
+	}).mouseleave(function(){
+		$(this).children('li').children('div').hide('slow');
+	});
+	$('[name=description]').hide();
 	/* For highlighting menu */
 	var page = $('#highlight').val();
 	if(page == 'home'){
