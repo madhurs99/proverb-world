@@ -18,11 +18,13 @@ $(document).ready(function(){
 		$(this).attr('action', action+'?userLanguage='+langCookie);
 	});
 	
-	$('[name=proverb]').mouseenter(function(){
-		$(this).children('li').children('div').show('slow');
+	$('[name=descriptionImg]').mouseenter(function(){
+		$(this).parent().parent().next().show('slow');
+		$(this).attr('src', 'images/collapse.png');
 	}).mouseleave(function(){
-		$(this).children('li').children('div').hide('slow');
+		//$(this).parent().parent().next().hide('slow');
 	});
+	
 	$('[name=description]').hide();
 	/* For highlighting menu */
 	var page = $('#highlight').val();

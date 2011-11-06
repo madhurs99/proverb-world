@@ -13,7 +13,7 @@
 <table width="100%" class="shade">
 	<tr>
 		
-		<td width="40%"><font size="20" face="century gothic">ProverbWorld.com</font></td>
+		<td width="40%"><font size="20" face="century gothic">ProverbWorld</font></td>
 		<td width="35%"></td>
 		<td width="25%" valign="top">
 						<table>

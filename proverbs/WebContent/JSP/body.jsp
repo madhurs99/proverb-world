@@ -31,10 +31,10 @@
 						<td width="600px">
 							<div name="proverb" style="border-bottom: #E5E5E5 1px solid; width: 100%">
 								<font color="#696969"><b>
-								<li type="circle">&nbsp;<c:out value="${pr1.proverb}"></c:out></b></font>
+								<img src="images/expand.png" name="descriptionImg">&nbsp;<c:out value="${pr1.proverb}"></c:out></b></font>
 							
 								<div name="description" style="background-color: #e8e8e8">
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<c:out value="${pr1.description}"></c:out>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#696969"><c:out value="${pr1.description}"></c:out></font>
 								</div>
 							</div>
 						</td>
