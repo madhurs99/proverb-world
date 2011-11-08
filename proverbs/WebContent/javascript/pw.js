@@ -21,8 +21,9 @@ $(document).ready(function(){
 	$('[name=descriptionImg]').mouseenter(function(){
 		$(this).parent().parent().next().show('slow');
 		$(this).attr('src', 'images/collapse.png');
-	}).mouseleave(function(){
-		//$(this).parent().parent().next().hide('slow');
+	}).click(function(){
+		$(this).parent().parent().next().hide('slow');
+		$(this).attr('src', 'images/expand.png');
 	});
 	
 	$('[name=description]').hide();
