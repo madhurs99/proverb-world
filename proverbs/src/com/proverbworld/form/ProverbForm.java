@@ -9,9 +9,13 @@ import com.proverbworld.common.Language;
 
 public class ProverbForm extends BaseForm {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int proverbID = 0;
 	private String proverb = "";
-	private String description = "";
+	private String proverbDescription = "";
 	private boolean approved = false;
 	private String submittedBy = "";
 	private String submitterPlace = "";
@@ -29,12 +33,7 @@ public class ProverbForm extends BaseForm {
 	public void setProverb(String proverb) {
 		this.proverb = proverb;
 	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
+
 	public boolean isApproved() {
 		return approved;
 	}
@@ -59,7 +58,7 @@ public class ProverbForm extends BaseForm {
 		Proverb proverbBean = new Proverb();
 		proverbBean.setProverb(this.proverb);
 		proverbBean.setProverbID(this.proverbID);
-		proverbBean.setDescription(this.description);
+		proverbBean.setDescription(this.proverbDescription);
 		proverbBean.setSubmittedBy(this.submittedBy);
 		proverbBean.setSubmitterPlace(this.submitterPlace);
 		proverbBean.setApproved(this.approved);
@@ -71,7 +70,7 @@ public class ProverbForm extends BaseForm {
 		
 		setProverb(proverbBean.getProverb());
 		setProverbID(proverbBean.getProverbID());
-		setDescription(proverbBean.getDescription());
+		setProverbDescription(proverbBean.getDescription());
 		setSubmittedBy(proverbBean.getSubmittedBy());
 		setSubmitterPlace(proverbBean.getSubmitterPlace());
 		setApproved(proverbBean.isApproved());
@@ -83,7 +82,7 @@ public class ProverbForm extends BaseForm {
 		
 		setProverb("");
 		setProverbID(0);
-		setDescription("");
+		setProverbDescription("");
 		setSubmittedBy("");
 		setSubmitterPlace("");
 		setApproved(false);
@@ -107,5 +106,11 @@ public class ProverbForm extends BaseForm {
 	}
 	public void reset(ActionMapping mapping, HttpServletRequest request){
 		clearForm();
+	}
+	public String getProverbDescription() {
+		return proverbDescription;
+	}
+	public void setProverbDescription(String proverbDescription) {
+		this.proverbDescription = proverbDescription;
 	}
 }

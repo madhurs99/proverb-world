@@ -30,7 +30,7 @@
 
         // Enable transliteration in the textbox with id
         // 'transliterateTextarea'.
-        control.makeTransliteratable(['description']);
+        control.makeTransliteratable(['proverbDescription']);
         control1.makeTransliteratable(['proverb']);
         
       }
@@ -40,8 +40,11 @@
     	  control.setLanguagePair(
     			    google.elements.transliteration.LanguageCode.ENGLISH,
     			    selectedLang);
+    	  control1.setLanguagePair(
+  			    google.elements.transliteration.LanguageCode.ENGLISH,
+  			    selectedLang);
       }
-    </script>
+   </script>
   </head>
 <!--   <body>
     Type in Hindi (Press Ctrl+g to toggle between English and Hindi)<br>
@@ -92,8 +95,8 @@ Type in English, hit space and get it converted to your chosen language.
 		<tr>
 			<td width="10%" />
 			<td width="20%"><bean:message key="description" /></td>
-			<td width="70%"><html:textarea styleId="description" property="description" rows="5"
-				cols="50"></html:textarea></td>
+			<td width="70%"><html:textarea rows="3" cols="50" styleId="proverbDescription" property ="proverbDescription"></html:textarea>
+			</td>
 		</tr>
 		<tr>
 			<td width="10%" />
