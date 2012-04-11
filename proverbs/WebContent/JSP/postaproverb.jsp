@@ -11,6 +11,7 @@
             packages: "transliteration"
       });
       var control;
+      var control1;
       var selectedLang
 
       function onLoad() {
@@ -25,11 +26,12 @@
         // Create an instance on TransliterationControl with the required
         // options.
         control = new google.elements.transliteration.TransliterationControl(options);
+        control1 = new google.elements.transliteration.TransliterationControl(options);
 
         // Enable transliteration in the textbox with id
         // 'transliterateTextarea'.
         control.makeTransliteratable(['description']);
-        control.makeTransliteratable(['proverb']);
+        control1.makeTransliteratable(['proverb']);
         
       }
       google.setOnLoadCallback(onLoad);
@@ -91,7 +93,7 @@ Type in English, hit space and get it converted to your chosen language.
 			<td width="10%" />
 			<td width="20%"><bean:message key="description" /></td>
 			<td width="70%"><html:textarea styleId="description" property="description" rows="5"
-				cols="50"/></td>
+				cols="50"></html:textarea></td>
 		</tr>
 		<tr>
 			<td width="10%" />
