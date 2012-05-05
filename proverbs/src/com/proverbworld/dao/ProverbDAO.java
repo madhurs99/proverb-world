@@ -21,8 +21,8 @@ public class ProverbDAO {
 		if (approved)
 			intApproved = 1;
 
-		String sql = "SELECT * FROM PROVERB  "
-				+ "WHERE APPROVED = ? and (language =?)";
+		String sql = "SELECT * FROM proverb  "
+				+ "WHERE approved = ? and (language =?)";
 		try {
 			
 			conn = DBUtil.getInstance().getConnection();
@@ -65,7 +65,7 @@ public class ProverbDAO {
 		if (approved)
 			intApproved = 1;
 
-		String sql = "SELECT * FROM PROVERB  " + "WHERE APPROVED = ?";
+		String sql = "SELECT * FROM proverb  " + "WHERE approved = ?";
 		try {
 			conn = DBUtil.getInstance().getConnection();
 			ps = conn.prepareStatement(sql);
@@ -105,12 +105,12 @@ public class ProverbDAO {
 		if (pBean.isApproved())
 			intApproved = 1;
 		if (pBean.getProverbID() > 0) {
-			proverbSQL = "UPDATE PROVERB SET PROVERB = '" + pBean.getProverb()
-					+ "',DESCRIPTION ='" + pBean.getDescription()
-					+ "',APPROVED=" + intApproved + " WHERE PROVERB_ID ="
+			proverbSQL = "UPDATE proverb SET proverb = '" + pBean.getProverb()
+					+ "',description ='" + pBean.getDescription()
+					+ "',approved=" + intApproved + " WHERE proverb_id ="
 					+ pBean.getProverbID();
 		} else {
-			proverbSQL = "INSERT INTO PROVERB(PROVERB, DESCRIPTION, APPROVED, SUBMITTER,  SUBMITTER_PLACE,language) VALUES ('"
+			proverbSQL = "INSERT INTO proverb(proverb, description, approved, submitter,  submitter_place,language) VALUES ('"
 					+ pBean.getProverb()
 					+ "','"
 					+ pBean.getDescription()
@@ -158,7 +158,7 @@ public class ProverbDAO {
 
 	public static boolean login(String userName, String passwd) {
 		boolean status = false;
-		String sql = "SELECT COUNT(*) AS C FROM USER WHERE NAME = ? AND PASSWORD = ?";
+		String sql = "SELECT COUNT(*) AS C FROM user WHERE name = ? AND password = ?";
 
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -190,7 +190,7 @@ public class ProverbDAO {
 	}
 
 	public static boolean deleteProverb(String proverbIDList) {
-		String sql = "DELETE FROM PROVERB WHERE PROVERB_ID in ("+proverbIDList+")";
+		String sql = "DELETE FROM proverb WHERE proverb_id in ("+proverbIDList+")";
 		Connection conn = null;
 		PreparedStatement ps = null;
 		int i = 0;
@@ -211,7 +211,7 @@ public class ProverbDAO {
 		}
 	}
 	public static boolean approveProverb(String proverbIDList) {
-		String sql = "UPDATE PROVERB SET APPROVED = 1 WHERE PROVERB_ID in ("+proverbIDList+")";
+		String sql = "UPDATE proverb SET approved = 1 WHERE proverb_id in ("+proverbIDList+")";
 		Connection conn = null;
 		PreparedStatement ps = null;
 		int i = 0;
@@ -246,8 +246,8 @@ public class ProverbDAO {
 		// "LEFT OUTER JOIN PROVERB_SUBMITTER_MAP PM ON P.PROVERB_ID = PM.PROVERB_ID "
 		// +
 		// "LEFT OUTER JOIN USER U ON PM.USER_ID = U.USER_ID WHERE P.PROVERB_ID = ?";
-		String sql = "SELECT PROVERB_ID, PROVERB, DESCRIPTION,submitter, submitter_place,language FROM PROVERB  "
-				+ "WHERE PROVERB_ID = ?";
+		String sql = "SELECT proverb_id, proverb, description,submitter, submitter_place,language FROM proverb  "
+				+ "WHERE proverb_id = ?";
 		try {
 			conn = DBUtil.getInstance().getConnection();
 			ps = conn.prepareCall(sql);
@@ -281,7 +281,7 @@ public class ProverbDAO {
 		ResultSet rs = ps.executeQuery();
 		if (rs != null) {
 			while (rs.next()) {
-				i = rs.getInt("ID");
+				i = rs.getInt("id");
 			}
 		}
 		DBUtil.getInstance().closeResultSet(rs);
