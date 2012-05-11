@@ -63,28 +63,11 @@ Thanks for posting
 <br>
 <br>
 <br>
-Type in English, hit space and get it converted to your chosen language.
-<br>
-<br>
-<br>
 <html:form action="/post">
 	<font color="red"><html:errors /></font>
 	<html:hidden property="proverbID" />
 	<html:hidden property="selectedLanguange" />
 	<table width="100%">
-		<tr>
-			<td width="10%" />
-			<td width="20%"><bean:message key="language" /></td>
-			<td width="70%">
-				<html:select property ="language" onchange="javascript:changeLanguage();">
-				<html:option value="pa">Punjabi</html:option>
-				<html:option value="hi">Hindi</html:option>
-				<html:option value="mr">Marathi</html:option>
-				<html:option value="en">English</html:option>
-			</html:select>
-			</td>
-		</tr>
-		
 		<tr>
 			<td width="10%" />
 			<td width="20%"><bean:message key="proverb" />*</td>

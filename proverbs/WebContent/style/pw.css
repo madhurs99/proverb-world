@@ -1,0 +1,78 @@
+body { color: #111;}
+.button a { text-decoration:none; color: white;}
+a { text-decoration:none; color:#333;}
+p {	padding: 5px,0px; }
+img { border:0px; }
+.clear_float { clear: both; }
+.floatLeft {
+	float: left;
+}
+.floatRight {
+	float: right;
+}
+
+#header {
+	color: fff;
+	width: 100%;
+	background: #E5E5E5;
+	background: -moz-linear-gradient(top, #F9F9F9, #E5E5E5);
+	background: -webkit-gradient(linear, left top, left bottom, from(#a9a9a9), to(#555555));
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F9F9F9, endColorstr=#E5E5E5);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#F9F9F9, endColorstr=#E5E5E5)";
+	height: 60px;
+	-moz-border-bottom-right-radius: 15px;
+	border-bottom-right-radius: 10px;
+	margin-bottom: 50px;
+}
+#container{
+	margin: 0 auto;
+	width: 1024px;
+}
+.lower_border {
+	border-color: #505050;
+	border-style: solid;
+	border-width: 0px 0px 1px 0px;
+}
+#content {
+	min-height: 100px;
+	height: auto !important;
+	padding: 20px 0px 40px 0px;
+}
+body {
+	margin: 0px;
+}
+.button {
+	-moz-box-shadow:inset 0px 1px 0px 0px #646464;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #646464;
+	box-shadow:inset 0px 1px 0px 0px #646464;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #969696), color-stop(1, #787878) );
+	background:-moz-linear-gradient( center top, #969696 5%, #787878 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#969696', endColorstr='#787878');
+	background-color:#969696;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #969696;
+	display:inline-block;
+	color:#ffffff;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 23px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #323232;
+	margin: 10px;
+}.button:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #787878), color-stop(1, #969696) );
+	background:-moz-linear-gradient( center top, #787878 5%, #969696 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#787878', endColorstr='#969696');
+	background-color:#787878;
+}.button:active {
+	position:relative;
+	top:1px;
+}
+#footer {
+	margin: 100px 0px 0px 0px;
+	border-width: 1px 0px 0px 0px;
+	border-style: solid;
+}
