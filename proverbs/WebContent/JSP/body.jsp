@@ -1,3 +1,4 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <%@ taglib uri="/tags/struts-tiles" prefix="tiles"%>
 <%@ taglib uri="/tags/struts-html" prefix="html"%>
 <%@ taglib uri="/tags/struts-bean" prefix="bean"%>
@@ -5,7 +6,7 @@
 <%@ taglib uri="http://displaytag.sf.net" prefix="displaytag"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 
-<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+
 
 <%@page import="java.util.List"%>
 <%@page import="com.proverbworld.beans.Proverb"%>
@@ -25,7 +26,7 @@
 	<tr>
 		<td width="100%">
 		<table >
-			<displaytag:table id="pr1" name="sessionScope.plist" pagesize="4" requestURI="welcome.do">
+			<displaytag:table id="pr1" name="sessionScope.plist" pagesize="4" requestURI="welcome.do" >
 				<displaytag:column>
 					<tr>
 						<td width="600px">

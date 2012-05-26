@@ -1,12 +1,10 @@
-<%@page contentType="text/html"%>
-<%@page pageEncoding="UTF-8"%>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <%@ taglib uri="/tags/struts-tiles" prefix="tiles"%>
 <%@ taglib uri="/tags/struts-html" prefix="html"%>
 <%@ taglib uri="/tags/struts-bean" prefix="bean"%>
 <%@ taglib uri="/tags/struts-logic" prefix="logic"%>
 <HEAD>
 <title>Proverbs</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </HEAD>
 <div id="header">
 	<div class="floatLeft">
@@ -22,7 +20,7 @@
 	<div class="floatRight">
 		<div class="floatRight">
 			Select your language
-			<select id="languageSelect" onchange="javascript:changeLanguage();">
+			<select id="languageSelect" name ="language" onchange="javascript:changeLanguage();">
 				<option value="pa">Punjabi</option>
 				<option value="hi">Hindi</option>
 				<option value="mr">Marathi</option>

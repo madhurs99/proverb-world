@@ -59,3 +59,8 @@ function onModify(action){
 	}
 	window.location.href = '/proverbs/admin.do?command='+action+'&idList='+idList;
 }
+
+
+function addLanguage(){
+	$("#language").val($('select option:selected').val());
+}

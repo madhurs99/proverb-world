@@ -44,6 +44,9 @@
   			    google.elements.transliteration.LanguageCode.ENGLISH,
   			    selectedLang);
       }
+      function addLanguage(){
+    		$("#language").val($('select option:selected').val());
+    	}
    </script>
   </head>
 <!--   <body>
@@ -65,8 +68,8 @@ Thanks for posting
 <br>
 <html:form action="/post">
 	<font color="red"><html:errors /></font>
-	<html:hidden property="proverbID" />
-	<html:hidden property="selectedLanguange" />
+	<input type="hidden" name="language" id="language"></input>
+	<%-- <html:hidden property="language" /> --%>
 	<table width="100%">
 		<tr>
 			<td width="10%" />
@@ -95,7 +98,7 @@ Thanks for posting
 		</tr>
 	</table>
 	<br>
-	<div align="center"><html:submit /></div>
+	<div align="center"><html:submit onclick="addLanguage();"/></div>
 </html:form>
 </body>
 

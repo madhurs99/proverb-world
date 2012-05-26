@@ -21,12 +21,12 @@ public class Proverb {
 		this.proverbID = proverbID;
 	}
 	public String getProverb() {
-		try {
-			this.proverb = new String(proverb.getBytes("ISO-8859-1"),"ISO-8859-1");
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			this.proverb = new String(proverb.getBytes("ISO-8859-1"),"ISO-8859-1");
+//		} catch (UnsupportedEncodingException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		return proverb;
 	}
 	public void setProverb(String proverb) {
@@ -37,23 +37,25 @@ public class Proverb {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		this.proverb = proverb;
 	}
 	public String getDescription() {
-		try {
-			this.description = new String(description.getBytes("ISO-8859-1"),"ISO-8859-1");
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			this.description = new String(description.getBytes("ISO-8859-1"),"ISO-8859-1");
+//		} catch (UnsupportedEncodingException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		return description;
 	}
 	public void setDescription(String description) {
-		try {
-			this.description = new String(description.getBytes("UTF8"),"UTF8");
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			this.description = new String(description.getBytes("UTF8"),"UTF8");
+//		} catch (UnsupportedEncodingException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		this.description = description;
 	}
 	public boolean isApproved() {
 		return approved;
