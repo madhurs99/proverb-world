@@ -6,9 +6,9 @@
 <HEAD>
 <title>Proverbs</title>
 </HEAD>
-<div id="header">
+<div>
 	<div class="floatLeft">
-		<img src="images/pro.png" width="120" height="120">
+		<img src="images/pro1.png" width="120" height="120">
 	</div>
 	<div class="button">
 		<a href="welcome.do?command=home"><bean:message key="home" /></a>
@@ -18,7 +18,7 @@
 	</div>
 
 	<div class="floatRight">
-		<div class="floatRight">
+		<div id="selectLang">
 			Select your language
 			<select id="languageSelect" name ="language" onchange="javascript:changeLanguage();">
 				<option value="pa">Punjabi</option>

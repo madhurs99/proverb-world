@@ -11,15 +11,12 @@
 <%@page import="java.util.List"%>
 <%@page import="com.proverbworld.beans.Proverb"%>
 <%@page import="java.util.Iterator"%>
+<div id="gSearch">
+   	<script	src="http://www.gmodules.com/ig/ifr?url=http://www.google.com/cse/api/010198639056244782038/cse/4zh6xttlk_e/gadget&amp;synd=open&amp;w=320&amp;h=75&amp;title=&amp;border=%23ffffff%7C3px%2C1px+solid+%23999999&amp;output=js"></script>
+</div>
 <br>
 <div style='float: right; width: 40%'>
-<table>
-	<tr>
-		<td><script
-			src="http://www.gmodules.com/ig/ifr?url=http://www.google.com/cse/api/010198639056244782038/cse/4zh6xttlk_e/gadget&amp;synd=open&amp;w=320&amp;h=75&amp;title=&amp;border=%23ffffff%7C3px%2C1px+solid+%23999999&amp;output=js"></script>
-		</td>
-	</tr>
-</table>
+
 </div>
 <div style='float: left; width: 60%'>
 <table width="100%">

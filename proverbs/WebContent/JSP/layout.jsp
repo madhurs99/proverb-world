@@ -11,6 +11,7 @@
    	<div id="container">
 		<div id="header">
              <tiles:insert attribute="header" />
+			 <div class="clear_float"></div>
         </div>
         <div id="content">
              <tiles:insert attribute="body" />
