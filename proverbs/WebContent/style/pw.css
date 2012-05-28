@@ -108,7 +108,9 @@ body {
 	border-style: solid;
 	border-width: 1px 0px 0px 0px;
 	border-color: #d0d0d0;
-	font-size: 11px
+	font-size: 11px;
+	margin-top: 50px;
+	
 }
 #selectLang {
 	margin: 10px;
