@@ -110,7 +110,9 @@ body {
 	border-color: #d0d0d0;
 	font-size: 11px;
 	margin-top: 50px;
-	
+	position: absolute;
+	bottom: 0;
+	width: 1000px;
 }
 #selectLang {
 	margin: 10px;
