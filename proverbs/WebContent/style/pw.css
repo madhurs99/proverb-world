@@ -125,3 +125,12 @@ body {
 	float: right;
 	marigin: 0px;
 }
+[name=proverb] {
+	margin-bottom: 10px;
+	border-bottom: #E5E5E5 1px solid;
+	width: 100%
+}
+[name=description] {
+	margin-top: 5px;
+	color: #1e7ad6;
+}

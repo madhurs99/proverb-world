@@ -27,17 +27,6 @@ $(document).ready(function(){
 	});
 	
 	$('[name=description]').hide();
-	/* For highlighting menu */
-	var page = $('#highlight').val();
-	if(page == 'home'){
-		$('#dolphinnav a:eq(0)').addClass('current');
-	}else if(page == 'post'){
-		$('#dolphinnav a:eq(1)').addClass('current');
-	}else if(page == 'contact'){
-		$('#dolphinnav a:eq(2)').addClass('current');
-	}else if(page == 'admin'){
-		$('#dolphinnav a:eq(3)').addClass('current');
-	}
 });
 
 function changeLanguage(){
