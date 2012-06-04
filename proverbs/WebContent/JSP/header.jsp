@@ -7,7 +7,7 @@
 <title>Proverbs</title>
 </HEAD>
 <div>
-	<div class="floatLeft">
+	<div id="logo" class="floatLeft">
 		<img src="images/pro1.png" width="120" height="120">
 	</div>
 	<div class="button">

@@ -105,3 +105,9 @@ body {
 	margin-top: 5px;
 	color: #00427C;
 }
+#logo{
+border: 8px solid white;
+border-radius: 70px;
+-moz-border-radius: 70px;
+-webkit-border-radius: 70px;
+}

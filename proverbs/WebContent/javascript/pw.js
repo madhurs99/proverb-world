@@ -27,6 +27,7 @@ $(document).ready(function(){
 	});
 	
 	$('[name=description]').hide();
+
 });
 
 function changeLanguage(){
