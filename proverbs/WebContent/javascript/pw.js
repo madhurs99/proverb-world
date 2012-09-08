@@ -32,7 +32,7 @@ $(document).ready(function(){
 
 function changeLanguage(){
 	$.cookie('proverbLanguage', $('select option:selected').val());
-	var sURL = window.location.pathname;
+	var sURL = window.location.protocol +"//" + window.location.host + window.location.pathname;
 	window.location.href = sURL+'?command=home&userLanguage='+$('select option:selected').val();
 }
 function onSelectToggle(){
