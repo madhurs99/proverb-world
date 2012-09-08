@@ -57,5 +57,5 @@
 <input id="highlight" value="home" type="hidden">
 <script src="javascript/jquery.quick.pagination.min.js" type="text/javascript"></script>
 <script  type="text/javascript">
-$("ul.pagination1").quickPagination({pagerLocation:"both",pageSize:"1"});
+$("ul.pagination1").quickPagination({pagerLocation:"both",pageSize:"10"});
 </script>

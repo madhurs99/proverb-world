@@ -117,7 +117,7 @@ border-radius: 70px;
 }
 #footer {
 	padding: 2px 5px 0px 5px;
-	color: fff;
+	color: white !important;
 	background: #00427C;
 	height: 20px;
 	-moz-border-top-left-radius: 10px;
