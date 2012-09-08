@@ -104,28 +104,30 @@ public class ProverbDAO {
 		int intApproved = 0;
 		if (pBean.isApproved())
 			intApproved = 1;
-		if (pBean.getProverbID() > 0) {
-			proverbSQL = "UPDATE proverb SET proverb = '" + pBean.getProverb()
-					+ "',description ='" + pBean.getDescription()
-					+ "',approved=" + intApproved + " WHERE proverb_id ="
-					+ pBean.getProverbID();
-		} else {
-			proverbSQL = "INSERT INTO proverb(proverb, description, approved, submitter,  submitter_place,language) VALUES ('"
-					+ pBean.getProverb()
-					+ "','"
-					+ pBean.getDescription()
-					+ "',"
-					+ intApproved
-					+ ",'"
-					+ pBean.getSubmittedBy()
-					+ "','"
-					+ pBean.getSubmitterPlace()
-					+ "','"
-					+ pBean.getLanguage() + "')";
-		}
 		try {
 			conn = DBUtil.getInstance().getConnection();
-			ps = conn.prepareStatement(proverbSQL);
+			
+			if (pBean.getProverbID() > 0) {
+				proverbSQL = "UPDATE proverb SET proverb = ?, description =?,approved=? WHERE proverb_id =?";
+				ps = conn.prepareStatement(proverbSQL);
+				ps.setString(1, pBean.getProverb());
+				ps.setString(2, pBean.getDescription());
+				ps.setInt(3, intApproved);
+				ps.setInt(4, pBean.getProverbID());
+			} else {
+				proverbSQL = "INSERT INTO proverb(proverb, description, approved, submitter,  submitter_place,language) VALUES (?,?,?,?,?,?)";
+				ps = conn.prepareStatement(proverbSQL);
+				ps.setString(1, pBean.getProverb());
+				ps.setString(2, pBean.getDescription());
+				ps.setInt(3, intApproved);
+				ps.setString(4, pBean.getSubmittedBy());
+				ps.setString(5, pBean.getSubmitterPlace());
+				ps.setString(6, pBean.getLanguage());
+			}
+			
+	
+
+			
 			int i = 0;
 			i = ps.executeUpdate();
 			// if(i >0 ){
