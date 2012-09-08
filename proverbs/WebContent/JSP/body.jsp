@@ -11,6 +11,8 @@
 <%@page import="java.util.List"%>
 <%@page import="com.proverbworld.beans.Proverb"%>
 <%@page import="java.util.Iterator"%>
+
+<link type="text/css" href="style/pagination.css" rel="stylesheet">
 <!-- <div id="gSearch">
     <script	src="http://www.gmodules.com/ig/ifr?url=http://www.google.com/cse/api/010198639056244782038/cse/4zh6xttlk_e/gadget&amp;synd=open&amp;w=320&amp;h=75&amp;title=&amp;border=%23ffffff%7C3px%2C1px+solid+%23999999&amp;output=js">
     </script>
@@ -23,27 +25,37 @@
 <table width="100%">
 	<tr>
 		<td width="100%">
-		<table >
-			<displaytag:table id="pr1" name="sessionScope.plist" pagesize="4" requestURI="welcome.do" >
-				<displaytag:column>
-					<tr>
-						<td width="600px">
-							<div name="proverb">
-								<font color="#696969"><b>
-								<img src="images/expand.png" name="descriptionImg">&nbsp;<c:out value="${pr1.proverb}"></c:out></b></font>
-							
-								<div name="description" style="background-color: #e8e8e8">
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font><c:out value="${pr1.description}"></c:out></font>
+		<!-- <table > -->
+		<%-- 	<displaytag:table id="pr1" name="sessionScope.plist" pagesize="4" requestURI="welcome.do" >
+				<displaytag:column> --%>
+					<!-- <tr>
+						<td width="600px"> -->
+						<ul class="pagination1">
+							<c:forEach var="pr1" items="${plist}">
+								<li>
+								<div name="proverb">
+									<font color="#696969"><b>
+									<img src="images/expand.png" name="descriptionImg">&nbsp;<c:out value="${pr1.proverb}"></c:out></b></font>
+								
+									<div name="description" style="background-color: #e8e8e8">
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font><c:out value="${pr1.description}"></c:out></font>
+									</div>
 								</div>
-							</div>
-						</td>
-					</tr>
-				</displaytag:column>
-			</displaytag:table>
-		</table>
+								</li>
+							</c:forEach>
+						</ul>	
+						<!-- </td>
+					</tr> -->
+				<%-- </displaytag:column>
+			</displaytag:table> --%>
+		<!-- </table> -->
 
 		</td>
 	</tr>
 </table>
 </div>
 <input id="highlight" value="home" type="hidden">
+<script src="javascript/jquery.quick.pagination.min.js" type="text/javascript"></script>
+<script  type="text/javascript">
+$("ul.pagination1").quickPagination({pagerLocation:"both",pageSize:"1"});
+</script>
