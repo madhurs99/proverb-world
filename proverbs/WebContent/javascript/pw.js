@@ -15,8 +15,7 @@ $(document).ready(function(){
 	
 	$('form').submit(function(event){
 		var proverb = $('#proverb');
-		if(proverb.length==1){
-			proverb.val()=="";
+		if(proverb.length==1 && proverb.val()==""){
 			alert("Please enter a proverb...");
 			event.preventDefault();
 		}
