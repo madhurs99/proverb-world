@@ -3,9 +3,6 @@
 <%@ taglib uri="/tags/struts-html" prefix="html"%>
 <%@ taglib uri="/tags/struts-bean" prefix="bean"%>
 <%@ taglib uri="/tags/struts-logic" prefix="logic"%>
-<HEAD>
-<title>Proverbs</title>
-</HEAD>
 <div>
 	<div id="logo" class="floatLeft">
 		<img src="images/pro1.png" width="120" height="120">
@@ -16,7 +13,7 @@
 	<div class="button">
 		<a href="welcome.do?command=post"><bean:message	key="post.a.proverb" /></a>
 	</div>
-
+	<div class="fb-like" data-href="http://proverbworld.com" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>	
 	<div class="floatRight">
 		<div id="selectLang">
 			Select your language
