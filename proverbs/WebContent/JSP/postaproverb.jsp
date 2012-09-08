@@ -59,7 +59,7 @@
 <input id="highlight" value="post" type="hidden">
 <logic:equal name="posted" value="true">
 <center><strong>
-Thanks for posting
+Thankyou for posting
 </strong>
 </center>
 </logic:equal>
@@ -85,7 +85,7 @@ Thanks for posting
 			</td>
 		</tr>
 		<tr>
-			<td width="10%" />
+			<td width="10%" height="40px"/>
 			<td width="20%"><bean:message key="your.name" /></td>
 			<td width="70%"><html:text property="submittedBy" size="35"
 				maxlength="35" /></td>
@@ -98,7 +98,7 @@ Thanks for posting
 		</tr>
 	</table>
 	<br>
-	<div align="center"><html:submit onclick="addLanguage();"/></div>
+	<div align="center"><html:submit styleClass="button" onclick="addLanguage();"/></div>
 </html:form>
 </body>
 

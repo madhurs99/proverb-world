@@ -14,6 +14,12 @@ $(document).ready(function(){
 	});
 	
 	$('form').submit(function(event){
+		var proverb = $('#proverb');
+		if(proverb.length==1){
+			proverb.val()=="";
+			alert("Please enter a proverb...");
+			event.preventDefault();
+		}
 		var action = $(this).attr('action');
 		$(this).attr('action', action+'?userLanguage='+langCookie);
 	});
