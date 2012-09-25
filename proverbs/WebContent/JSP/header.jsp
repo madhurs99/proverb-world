@@ -13,7 +13,7 @@
 	<div class="button">
 		<a href="welcome.do?command=post"><bean:message	key="post.a.proverb" /></a>
 	</div>
-	<div class="fb-like" data-href="http://proverbworld.com" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>	
+	<div class="fb-like" data-href="http://proverbworld.com" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>	
 	<div class="floatRight">
 		<div id="selectLang">
 			Select your language
