@@ -38,7 +38,7 @@
 									<img src="images/expand.png" name="descriptionImg">&nbsp;<c:out value="${pr1.proverb}"></c:out></b></font>
 								
 									<div name="description" style="background-color: #e8e8e8">
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font><c:out value="${pr1.description}"></c:out></font>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<c:out value="${pr1.description}"></c:out>
 									</div>
 								</div>
 								</li>

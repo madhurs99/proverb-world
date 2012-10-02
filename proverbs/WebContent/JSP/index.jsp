@@ -6,6 +6,6 @@ if(langCookie === undefined || langCookie == null || langCookie == ""){
 	langCookie = 'pa';
 }
 /*alert(window.location.href)*/
-window.location.href = window.location+'welcome.do?command=home&userLanguage='+langCookie;
+window.location.href = window.location+'welcome.do?command=home';
 </script>
 

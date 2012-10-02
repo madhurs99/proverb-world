@@ -5,9 +5,10 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta property="og:title" content="Proverb World" />
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content="http://www.proverbworld.com" />
-		<meta property="og:image" content="http://www.proverbworld.com//images/pro.png" />
+		<meta property="og:url" content="http://www.proverbworld.com/welcome.do?command=home" />
+		<meta property="og:image" content="http://www.proverbworld.com//images/pro1.png" />
 		<meta property="og:site_name" content="proverbworld.com" />
+		<meta property="og:description" content="The site aims at creating a comprehensive collection of proverbs in various languages - English, Punjabi, Hindi, Marathi, Telugu and Kannada."/>
 		<meta property="fb:admins" content="100001629855783" />
 	<%@ taglib uri="/tags/struts-html" prefix="html"%>
 	<%@ taglib uri="/tags/struts-bean" prefix="bean"%>
@@ -17,7 +18,7 @@
 	<script src="javascript/jquery.cookie.js" type="text/javascript"></script>
 	<script src="javascript/pw.js" type="text/javascript"></script>
 	<link rel="stylesheet" href="style/pw.css" type="text/css" />
-	<link rel="icon" href="images/favicon.png" type="image/x-icon">
+	<link rel="icon" href="images/favicon1.png" type="image/x-icon">
 </head>
 <body>
 <div id="fb-root"></div>
